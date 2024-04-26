@@ -33,22 +33,22 @@ def main():
     data = pakFileHandle.read()
 
     ### EXPERIMENTAL: File index reading
-    print("-----[ Reading file index ]-----")
-    idx = 0
-    endidx = 0
-
-    while True:
-        idx = data.find(FONTSZ, endidx)
-        endidx = data.find(PNGFEND, endidx) + len(PNGFEND)
-
-        print(f"Found a file index entry at offset {hex(idx)} to end {hex(endidx)}")
-        
-        pakFileHandle.seek(idx)
-        readData = pakFileHandle.read(endidx - idx).replace(b'\x00', b'').replace(b'\xf8|mW', b'')
-
-        print(readData)
-    
-    return 1
+    #print("-----[ Reading file index ]-----")
+    #idx = 0
+    #endidx = 0
+#
+    #while True:
+    #    idx = data.find(FONTSZ, endidx)
+    #    endidx = data.find(PNGFEND, endidx) + len(PNGFEND)
+#
+    #    print(f"Found a file index entry at offset {hex(idx)} to end {hex(endidx)}")
+    #    
+    #    pakFileHandle.seek(idx)
+    #    readData = pakFileHandle.read(endidx - idx).replace(b'\x00', b'').replace(b'\xf8|mW', b'')
+#
+    #    print(readData)
+    #
+    #return 1
 
     print("-----[ Extracting PNGs ]-----")
 
